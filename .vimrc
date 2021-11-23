@@ -56,7 +56,7 @@ function! s:on_lsp_buffer_enabled() abort
 
     let g:lsp_format_sync_timeout = 1000
     autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
-
+    
     " refer to doc to add more commands
 endfunction
 
@@ -70,10 +70,12 @@ let g:lsp_settings = {
   \   'gopls': {
   \     'initialization_options': {
   \       'usePlaceholders': v:true,
+  \       'analyses': {
+  \         'fillstruct': v:true,
+  \       },
   \     },
   \   },
   \ }
-
 
 " For vim-vsnip(copy from readme)
 " Expand
@@ -89,3 +91,7 @@ imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab
 smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
 imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
 smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+
+
+" Alias
+:command A LspCodeAction
