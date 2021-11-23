@@ -12,13 +12,19 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
 Plug 'mattn/vim-goimports'
 
+" For footer
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" For colorscheme
+Plug 'w0ng/vim-hybrid', {'do': 'cp colors/* ~/.vim/colors/'}
+
 " Initialize plugin system
 call plug#end()
 
 
 " Base settings
 set number
-colorscheme desert
 set tabstop=4
 set shiftwidth=4
 
@@ -31,3 +37,11 @@ let g:lsp_settings = {
   \   },
   \ }
 
+
+" For color
+set t_Co=256
+set background=dark
+colorscheme hybrid
+
+" For vim-airline
+let g:airline#extensions#tabline#enabled = 1
