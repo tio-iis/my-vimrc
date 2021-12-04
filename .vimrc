@@ -37,6 +37,9 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
+" For git
+Plug 'tpope/vim-fugitive'
+
 " Initialize plugin system
 call plug#end()
 
@@ -181,6 +184,9 @@ function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr> cd
   \ defx#do_action('change_vim_cwd')
 endfunction
+call defx#custom#option('_', {
+	\ 'show_ignored_files': 1,
+	\ })
 
 " For denite
 nnoremap <C-p> :Denite file/rec<CR>
